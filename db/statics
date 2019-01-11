@@ -1,0 +1,39 @@
+
+#年度总支出收入
+select sum(case when fee_attr='positive' then fee*0.01 else fee*-0.01 end ) as feesum,
+       sum(case when fee_attr='positive' then fee*0.01 else 0 end ) as feesumpos,
+       sum(case when fee_attr='negtive' then fee*-0.01 else 0 end ) as feesumneg
+from orders
+where timestamp < 1546272000 and timestamp> 1514736000
+
+# 按类型
+select  classify_type,count(*),sum(fee * 0.01) as feesum ,
+       (select type_str FROM order_type  WHERE orders.classify_type=order_type.type) as typestr
+from orders
+where timestamp < 1546272000 and timestamp> 1514736000
+group by classify_type
+order by feesum desc;
+
+# 按月份
+select FROM_UNIXTIME(timestamp,'%Y-%m') as time,
+       sum(case when fee_attr='positive' then fee*0.01 else 0 end ) as feesumpos,
+       sum(case when fee_attr='negtive' then fee*-0.01 else 0 end ) as feesumneg,
+       sum(case when fee_attr='positive' then fee*0.01 else fee*-0.01 end ) as feesumdda
+from orders
+where timestamp < 1546272000 and timestamp> 1514736000
+group by time
+order by time desc;
+
+#按数量
+select title,count(title) as ctitle
+from orders
+where timestamp < 1546272000 and timestamp> 1514736000
+group by title
+order by ctitle desc;
+
+#按好友
+select payer_wxid,count(payer_wxid) as cwxid
+from orders
+where timestamp < 1546272000 and timestamp> 1514736000
+group by payer_wxid
+order by cwxid desc
