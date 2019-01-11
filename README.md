@@ -1,6 +1,6 @@
 # wechatbill
-统计2018微信年度账单
-实现思路地址为
+统计2018微信年度账单  
+实现思路地址为：https://juejin.im/post/5c383aa66fb9a049e412e9f3
 
 - IDE IntelliJ IDEA
 - 数据库 Mysql 8.0
@@ -15,5 +15,5 @@ mysql执行方法：
 
 ## 2、修改application.properties中的mysql连接参数 username password
 
-## 3、修改请求微信接口的相关数据填充请求中的数据，全局搜索"复制"替换参数,参数获取请看：
+## 3、修改请求微信接口的相关数据填充请求中的数据，全局搜索"复制"替换参数,参数获取请看：https://juejin.im/post/5c383aa66fb9a049e412e9f3
     
