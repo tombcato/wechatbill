@@ -1,6 +1,5 @@
 # wechatbill
 统计2018微信年度账单  
-实现思路地址为：https://juejin.im/post/5c383aa66fb9a049e412e9f3
 
 - IDE IntelliJ IDEA
 - 数据库 Mysql 8.0
